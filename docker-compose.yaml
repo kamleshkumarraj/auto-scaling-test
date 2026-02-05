@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   asg-stress-app:
-    image: asg-stress-app:latest
+    image: 897722703133.dkr.ecr.ap-south-1.amazonaws.com/test/autoscaling:latest
     container_name: asg-stress-app
     restart: unless-stopped
 
