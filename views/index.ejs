@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ASG Stress Test Dashboard</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<div class="container">
+  <h1>🚀 Auto Scaling Stress Dashboard</h1>
+  <p class="meta">
+    Instance: <strong><%= hostname %></strong> |
+    CPUs: <strong><%= cpuCount %></strong>
+  </p>
+
+  <div class="card">
+    <h2>🔥 CPU Load Control</h2>
+    <button class="btn danger" onclick="startCPU()">Start CPU Stress (90–100%)</button>
+    <button class="btn success" onclick="stopCPU()">Stop CPU Stress</button>
+  </div>
+
+  <div class="card">
+    <h2>🌐 Network Traffic Control</h2>
+    <button class="btn danger" onclick="startNetwork()">Increase Outbound Traffic</button>
+    <button class="btn success" onclick="stopNetwork()">Stop Network Traffic</button>
+  </div>
+
+  <div class="status" id="status">Status: Idle</div>
+</div>
+
+<script src="/app.js"></script>
+</body>
+</html>
