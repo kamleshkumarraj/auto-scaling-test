@@ -13,14 +13,14 @@ services:
       NODE_ENV: production
       PORT: 3000
 
-    deploy:
-      resources:
-        limits:
-          cpus: "2.0"
-          memory: 1024M
-        reservations:
-          cpus: "1.0"
-          memory: 512M
+    # deploy:
+    #   resources:
+    #     limits:
+    #       cpus: "1.0"
+    #       memory: 1024M
+    #     reservations:
+    #       cpus: "1.0"
+    #       memory: 512M
 
     healthcheck:
       test: ["CMD", "wget", "-qO-", "http://localhost:3000/health"]
