@@ -1,0 +1,44 @@
+version: "3.9"
+
+services:
+  asg-stress-app:
+    image: asg-stress-app:latest
+    container_name: asg-stress-app
+    restart: unless-stopped
+
+    ports:
+      - "3000:3000"
+
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+
+    deploy:
+      resources:
+        limits:
+          cpus: "2.0"
+          memory: 1024M
+        reservations:
+          cpus: "1.0"
+          memory: 512M
+
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+    networks:
+      - asg-net
+
+
+networks:
+  asg-net:
+    driver: bridge
