@@ -3,8 +3,8 @@ pipeline {
 
   environment {
     AWS_REGION = "ap-south-1"
-    ECR_ACCOUNT_ID = "123456789012"
-    ECR_REPO = "asg-stress-app"
+    ECR_ACCOUNT_ID = "897722703133"
+    ECR_REPO = "test/autoscaling"
     IMAGE_TAG = "${BUILD_NUMBER}"
     ECR_URI = "${ECR_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com"
   }
